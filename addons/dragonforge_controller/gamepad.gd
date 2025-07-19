@@ -1,13 +1,11 @@
 extends Node
 
-
 enum Type {
 	XBox,
 	Playstation,
 	Nintendo,
 	Unknown
 }
-
 
 ## Processes gamepad right stick movement for a 3D camera look feature when it
 ## is on.[br]
@@ -59,7 +57,6 @@ enum Type {
 ## Stores Nintendo button icons based on the list above.
 @export var nintendo_button_images: Array[Texture2D]
 
-
 ##● JOY_AXIS_LEFT_X = 0
 ##Game controller left joystick x-axis. (RIGHT +)
 ##● JOY_AXIS_LEFT_Y = 1
@@ -79,7 +76,6 @@ enum Type {
 ## Stores Nintendo positive joystick and trigger icons based on the list above.
 @export var nintendo_positive_joystick_images: Array[Texture2D]
 
-
 ##● JOY_AXIS_LEFT_X = 0
 ##Game controller left joystick x-axis. (LEFT -)
 ##● JOY_AXIS_LEFT_Y = 1
@@ -95,8 +91,6 @@ enum Type {
 ## Stores Nintendo negative joystick icons based on the list above.
 @export var nintendo_negative_joystick_images: Array[Texture2D]
 
-
-@onready var cooldown_timer: Timer = $"Cooldown Timer"
 @onready var button_images: Dictionary = {
 	Type.XBox: xbox_button_images,
 	Type.Playstation: playstation_button_images,
