@@ -19,6 +19,7 @@ const HEAD_VISIBILITY_LAYER = 2
 
 
 func _ready() -> void:
+	set_physics_process(false)
 	if first_person:
 		spring_arm_3d.spring_length = 0.0
 		spring_arm_3d.rotation.x = 0.0

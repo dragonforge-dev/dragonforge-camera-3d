@@ -10,9 +10,9 @@ config_version=5
 
 [application]
 
-config/name="Dragonforge Camera 0.1.1"
+config/name="Dragonforge Camera 0.1.2"
 config/description="A camera node to allow easy switching between multiple camera angles and modes."
-config/version="0.1.1"
+config/version="0.1.2"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="uid://bmp5okbhpox34"
 
