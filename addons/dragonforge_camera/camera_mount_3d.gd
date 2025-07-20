@@ -44,7 +44,12 @@ func update_rotation() -> void:
 	apply_rotation()
 	
 	if Controller.get_last_input_type() == Controller.LastInput.KEYBOARD_AND_MOUSE:
-		Controller.look = Vector2.ZERO
+		if first_person and \
+		(Controller.look < Mouse.sensitivity * Vector2(-0.001, -0.001) or \
+		Controller.look > Mouse.sensitivity * Vector2(0.001, 0.001)):
+			return
+		else:
+			Controller.look = Vector2.ZERO
 
 
 func apply_rotation() -> void:
