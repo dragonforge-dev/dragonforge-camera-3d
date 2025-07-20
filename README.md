@@ -1,7 +1,7 @@
 [![Static Badge](https://img.shields.io/badge/Godot%20Engine-4.4.1.stable-blue?style=plastic&logo=godotengine)](https://godotengine.org/)
 # Dragonforge Camera
 A camera node to allow easy switching between multiple camera angles and modes.
-# Version 0.1.2
+# Version 0.1.3
 For use with **Godot 4.4.1.stable** and later.
 # Installation Instructions
 1. Copy the **dragonforge_controller** folder from the **addons** folder into your project's **addons** folder.
