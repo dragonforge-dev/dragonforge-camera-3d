@@ -1,7 +1,7 @@
 [![Static Badge](https://img.shields.io/badge/Godot%20Engine-4.5.stable-blue?style=plastic&logo=godotengine)](https://godotengine.org/)
 # Dragonforge Camera 3D
 A camera node to allow easy switching between multiple camera angles and modes.
-# Version 0.2
+# Version 0.2.1
 For use with **Godot 4.5.stable** and later.
 ## Dependencies
 The following dependencies are included in the addons folder and are required for the template to function.
@@ -13,15 +13,17 @@ The following dependencies are included in the addons folder and are required fo
   * ERROR: res://addons/dragonforge_controller/controller.gd:56 - Parse Error: Identifier "Mouse" not declared in the current scope.
   * ERROR: res://addons/dragonforge_controller/controller.gd:59 - Parse Error: Identifier "Gamepad" not declared in the current scope.
   * ERROR: modules/gdscript/gdscript.cpp:3022 - Failed to load script "res://addons/dragonforge_controller/controller.gd" with error "Parse error".
+11. Copy the `dragonforge_camera` folder from the `addons` folder into your project's `addons` folder.
 3. In your project go to **Project -> Project Settings...**
 4. Select the **Plugins** tab.
 5. Check the **On checkbox** under **Enabled** for **Dragonforge Controller**
-6. Press the **Close** button. (If you would like to ensure the errors are gone, go to **Project -> Reload Project**. When the project reloads, the previous errors should no longer appear. (We cannot guarantee your own errors will not still appear.))
-7. In your project go to **Project -> Project Settings...**
-8. Select the **Input Map** tab.
-9. Add a new action named `change_camera`.
-10. Map the action **Joypad Button 8** (right-stick press) and the **C** key. (Or whatever you choose)
-11. Copy the `dragonforge_camera` folder from the `addons` folder into your project's `addons` folder.
+5. Check the **On checkbox** under **Enabled** for **Dragonforge Camera 3D**
+10. Press the **Close** button.
+11. Save your project.
+12. In your project go to **Project -> Reload Current Project**.
+13. Wait for the project to reload.
+
+**NOTE:** It's important to reload the project after running the plugin because it creates the `change_camera` action. Once you reboot, you can edit this action as you wish, but disabling and re-enabling this plugin will reset them because disabling the plugin will remove the action.
 
 # Usage Instructions
 1. On your **CharacterBody3D** node click **+ Add Child Node...** and select a **Cameras** node.
@@ -41,7 +43,7 @@ class_name Player extends Character
 ## Your character model
 @export var rig: Node3D
 ## The speed at which the player turns.
-@export var animation_decay: float = 20.0
+@export var turn_speed: float = 20.0
 ##
 @export var speed = 5.0
 
@@ -66,20 +68,14 @@ func _physics_process(delta: float) -> void:
 	
 
 func get_input_direction() -> Vector3:
-	var camera = cameras.active_camera
 	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
 	var input_vector := Vector3(input_dir.x, 0, input_dir.y).normalized()
-	if camera is CameraMount3D:
-		return camera.horizontal_pivot.global_transform.basis * input_vector
-	elif camera.rotation.y != 0.0:
-		return input_vector.rotated(Vector3.UP, camera.rotation.y).normalized()
-	else:
-		return transform.basis * input_vector
+	return cameras.get_facing(input_vector, character.transform.basis)
 
 
 func look_toward_direction(delta: float) -> void:
 	var target := rig.global_transform.looking_at(rig.global_position + direction, Vector3.UP)
-	rig.global_transform = rig.global_transform.interpolate_with(target, 1.0 - exp(-animation_decay * delta))
+	rig.global_transform = rig.global_transform.interpolate_with(target, 1.0 - exp(-turn_speed * delta))
 ```
 
 # Class Descriptions
@@ -95,6 +91,7 @@ Note that while all these functions are available, as long as the `change_camera
 - `get_first_camera() -> Node3D` Return the first Camera3D or CameraMount3D found that is a child of this node.
 - `inititalize_cameras() -> Array[Node3D]` Return a list of all Camera3D and CameraMount3D nodes that are children of this node.
 - `change_camera(camera: Node3D) -> void` Makes the passed camera the active camera.
+- `get_facing(input_vector: Vector3, character_transform_basis: Basis) -> Vector3` Returns the direction for a [CharacterBody3D] based on the passed input vector and the [member Characterbody.transform.basis]. If the active camera is 1st person, 3rd person free look or 3rd person follow, the player will point in the direction of the camera. If the camera is a 3rd person fixed, ISO or birds eye view camera, it will just reflect the actual direction the input is moving the player.
 
 ## CameraMount3D
 Intended if you want a first person or third person camera attached to the player. If you want this to be a first person camera, set `first_person` to true.
