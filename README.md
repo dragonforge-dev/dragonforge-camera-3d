@@ -1,5 +1,5 @@
 [![Static Badge](https://img.shields.io/badge/Godot%20Engine-4.5.stable-blue?style=plastic&logo=godotengine)](https://godotengine.org/)
-# Dragonforge Camera
+# Dragonforge Camera 3D
 A camera node to allow easy switching between multiple camera angles and modes.
 # Version 0.2
 For use with **Godot 4.5.stable** and later.
