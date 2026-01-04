@@ -2,7 +2,7 @@
 
 # Dragonforge Camera 3D <img src="/addons/dragonforge_camera/assets/textures/icons/video-camera-round.svg" width="32" alt="Camera 3D Project Icon"/>
 A camera node to allow easy switching between multiple camera angles and modes.
-# Version 0.2.2
+# Version 0.2.3
 For use with **Godot 4.5.stable** and later.
 ## Dependencies
 The following dependencies are included in the addons folder and are required for the template to function.
