@@ -1,4 +1,7 @@
 [![Static Badge](https://img.shields.io/badge/Godot%20Engine-4.5.stable-blue?style=plastic&logo=godotengine)](https://godotengine.org/)
+[![License](https://img.shields.io/github/license/myyk/godot-plugin-updater)](https://github.com/dragonforge-dev/dragonforge-camera-3d/blob/main/LICENSE)
+[![GitHub release badge](https://badgen.net/github/release/dragonforge-dev/dragonforge-camera-3d/stable)](https://github.com/dragonforge-dev/dragonforge-camera-3d/releases/latest)
+[![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/dragonforge-dev/dragonforge-camera-3d)](https://img.shields.io/github/languages/code-size/dragonforge-dev/dragonforge-camera-3d)
 
 # Dragonforge Camera 3D <img src="/addons/dragonforge_camera/assets/textures/icons/video-camera-round.svg" width="32" alt="Camera 3D Project Icon"/>
 A camera node to allow easy switching between multiple camera angles and modes.
