@@ -1,4 +1,4 @@
-[![Static Badge](https://img.shields.io/badge/Godot%20Engine-4.5.stable-blue?style=plastic&logo=godotengine)](https://godotengine.org/)
+[![Static Badge](https://img.shields.io/badge/Godot%20Engine-4.6.1-blue?style=plastic&logo=godotengine)](https://godotengine.org/)
 [![License](https://img.shields.io/github/license/dragonforge-dev/dragonforge-camera-3d?logo=mit)](https://github.com/dragonforge-dev/dragonforge-camera-3d/blob/main/LICENSE)
 [![GitHub release badge](https://badgen.net/github/release/dragonforge-dev/dragonforge-camera-3d/latest)](https://github.com/dragonforge-dev/dragonforge-camera-3d/releases/latest)
 [![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/dragonforge-dev/dragonforge-camera-3d)](https://img.shields.io/github/languages/code-size/dragonforge-dev/dragonforge-camera-3d)
@@ -6,27 +6,23 @@
 
 # Dragonforge Camera 3D <img src="/addons/dragonforge_camera/assets/textures/icons/video-camera-round.svg" width="32" alt="Camera 3D Project Icon"/>
 A camera node to allow easy switching between multiple camera angles and modes.
-# Version 0.2.3
-For use with **Godot 4.5.stable** and later.
+# Version 0.3
+For use with **Godot 4.6.1** and later.
 ## Dependencies
 The following dependencies are included in the addons folder and are required for the template to function.
-- [Dragonforge Controller 0.12.1](https://github.com/dragonforge-dev/dragonforge-controller)
+- [Dragonforge Controller 0.14.5](https://github.com/dragonforge-dev/dragonforge-controller)
 # Installation Instructions
 1. Copy the `dragonforge_controller` folder from the `addons` folder into your project's `addons` folder.
-2. Ignore the following errors (they are appearing because the component is not yet enabled):
-  * ERROR: res://addons/dragonforge_controller/controller.gd:54 - Parse Error: Identifier "Keyboard" not declared in the current scope.
-  * ERROR: res://addons/dragonforge_controller/controller.gd:56 - Parse Error: Identifier "Mouse" not declared in the current scope.
-  * ERROR: res://addons/dragonforge_controller/controller.gd:59 - Parse Error: Identifier "Gamepad" not declared in the current scope.
-  * ERROR: modules/gdscript/gdscript.cpp:3022 - Failed to load script "res://addons/dragonforge_controller/controller.gd" with error "Parse error".
-11. Copy the `dragonforge_camera` folder from the `addons` folder into your project's `addons` folder.
-3. In your project go to **Project -> Project Settings...**
-4. Select the **Plugins** tab.
-5. Check the **On checkbox** under **Enabled** for **Dragonforge Controller**
-5. Check the **On checkbox** under **Enabled** for **Dragonforge Camera 3D**
-10. Press the **Close** button.
-11. Save your project.
-12. In your project go to **Project -> Reload Current Project**.
-13. Wait for the project to reload.
+2. Ignore any errors (they are appearing because the component is not yet enabled).
+3. Copy the `dragonforge_camera` folder from the `addons` folder into your project's `addons` folder.
+4. In your project go to **Project -> Project Settings...**
+5. Select the **Plugins** tab.
+6. Check the **On checkbox** under **Enabled** for **Dragonforge Controller**
+7. Check the **On checkbox** under **Enabled** for **Dragonforge Camera 3D**
+8. Press the **Close** button.
+9. Save your project.
+10. In your project go to **Project -> Reload Current Project**.
+11. Wait for the project to reload.
 
 **NOTE:** It's important to reload the project after running the plugin because it creates the `change_camera` action. Once you reboot, you can edit this action as you wish, but disabling and re-enabling this plugin will reset them because disabling the plugin will remove the action.
 
